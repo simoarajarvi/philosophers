@@ -3,9 +3,10 @@ Testing font...
 
 ### Initiate search
 
-| Functionality  | Screenshot |
+| Landing page  |  |
 | ------------- | ------------- |
-Testing| ![Screenshot of home page](./img/init.png)
+At server startup, the expertize document embeddings are pre-calculated, or fetched from cache. 
+The user has the option to select the number of top experts prior to entering a question. | ![Screenshot of home page](./img/init.png)
 
 
 
