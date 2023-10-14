@@ -7,3 +7,9 @@ Testing font...
 | ------------- | ------------- |
 
 
+Testing 
+|<span style="font-weight:normal">test</span>|
+|:---------------------------------------------:|
+|              content is king                  |
+
+
