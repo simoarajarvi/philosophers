@@ -1,6 +1,9 @@
 ## Philosophers Expertise Locator
 Testing font...
 
+
+![Screenshot of home page](./img/results.png)
+
 ### Landing page
 
 TODO: Explain server startup
