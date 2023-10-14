@@ -2,4 +2,4 @@
 Testing font...
 
 ### Initiate search
-![Screenshot of home page](./main/init.png)
+![Screenshot of home page](./img/init.png)
