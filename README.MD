@@ -1,4 +1,4 @@
-# "Philosophers" PoC Expertise Locator Framework
+# Expertise Locator Framework - "Philosophers" PoC App
 
 
 ## RAG - based locator
