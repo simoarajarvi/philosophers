@@ -28,25 +28,7 @@ Whe the user submits a question, the question text is first processed the embedd
 
 ![Screenshot of home page](./img/results.png)
 
-With the current version, there is no 
+With the current version, the expertise documents are not highlighted for areas that support a candate's selection. Since the results are produced at a semantic level, this is not a trivial task, but it would be very helpful feature for an end user and implementation is under research.   
 
-![Screenshot of home page](./img/retrieval.png)
-
-
-
-### Landing page
-
-TODO: Explain server startup
-
-| Landing page  |  |
-| ------------- | ------------- |
-At server startup, the expertize document embeddings are pre-calculated, or fetched from cache. The user has the option to select the number of top experts prior to entering a question. | ![Screenshot of home page](./img/init.png)
-The RAG phase 1 explanation..... | ![Screenshot of home page](./img/question.png)
-The RAG phase 2 explanation..... | ![Screenshot of home page](./img/results.png)
-Expertise documentsexplanation..... | ![Screenshot of home page](./img/retrieval.png)
-
-
-
-
-
+![Screenshot of home page](./img/expertise_basis.png)
 
