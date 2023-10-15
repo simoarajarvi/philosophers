@@ -36,12 +36,12 @@ def get_embedding_for_doc(string : str,name: str,img_path: str,
         logger.info('Found '+name+' from cache')
     return embedding_cache[(name,img_path, model)]
 ```
-At the landing page, the user will enter a question (or a describe the topic(s) where help is needed). In the toy-example, a user is looking for a classic philosopher to help with 6th grade math:
+At the landing page, the user will enter a question (or a describe the topic(s) where help is needed). In the toy-example, a user is looking for a classic philosopher to help with 6th grade math.
 
 ![Screenshot of home page](./img/question.png)
 
 #### Expertise retrieval
-Whe the user submits a question, the question text is first processed the embedding model and then compared against the cached document embeddings representing the available experts. 
+Whe the user submits a question, the question text is first processed by the embedding model and then compared against the cached document embeddings representing the available experts. 
 
 ```python
 def find_best_experts(qa_embedding,exp_embeddings,distance_metric="cosine"):
