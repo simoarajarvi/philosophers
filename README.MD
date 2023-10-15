@@ -24,9 +24,10 @@ The PoC is hosted as a web app, only a development server implementation - **Not
 
 ```python
 # Either get embeddings from the cache, or call  model API to build them. 
-def get_embedding_for_doc(string : str,name: str,img_path: str,embedding_cache:dict,model: str = EMBEDDING_MODEL) -> list:
+def get_embedding_for_doc(string : str,name: str,img_path: str,
+    embedding_cache:dict,model: str = EMBEDDING_MODEL) -> list:
     if (name,img_path , model) not in embedding_cache.keys():
-        embedding_cache[(name,img_path ,model)] = get_embedding(string ,model) #get_embedding() ->  OpenAI API
+        embedding_cache[(name,img_path ,model)] = get_embedding(string ,model) -> OpenAI API
         with open(embedding_cache_path, "wb") as embedding_cache_file:
             pickle.dump(embedding_cache, embedding_cache_file)
     else:
