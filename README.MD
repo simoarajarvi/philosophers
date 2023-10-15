@@ -21,7 +21,8 @@ Concluding the procedure, the third phase focuses on result presentation. The LL
 
 ### Screen captures
 The PoC is hosted as a web app, only a development server implementation - **Not to be used in production** - is provided in this repo. At server startup, a directory with expertise documents is scanned and compared against cached embeddings. If updates are found, the embedding model is called to process the updated documents and cache them. 
-'''
+
+```python
 # Either get embeddings from the cache, or call  model API to build them. 
 def get_embedding_for_doc(string : str,name: str,img_path: str,embedding_cache:dict,model: str = EMBEDDING_MODEL) -> list:
     if (name,img_path , model) not in embedding_cache.keys():
@@ -31,7 +32,7 @@ def get_embedding_for_doc(string : str,name: str,img_path: str,embedding_cache:d
     else:
         logger.info('Found '+name+' from cache')
     return embedding_cache[(name,img_path, model)]
-'''
+```
 At the landing page, the user will enter a question (or a describe the topic(s) where help is needed). In the toy-example, a user is looking for a classic philosopher to help with 6th grade math:
 
 ![Screenshot of home page](./img/question.png)
