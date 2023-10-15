@@ -48,11 +48,28 @@ def find_best_experts(qa_embedding,exp_embeddings,distance_metric="cosine"):
     return indices_of_nearest_neighbors,distances
 ```
 
-In the toy-example, each philosopher was given a 4 paragraph summary of their achievements and areas of exploration. After the top-N experts are processed by the second phase LLM model, the sorted results are sent to the browser asynchronously and the results page is updated with the best experts, and explanations for the selections. 
+In the toy-example, each philosopher was given a 4 paragraph summary of their achievements and areas of exploration. 
+
+![Screenshot of home page](./img/expertise_basis.png)
+
+After the top-N experts are processed by the second phase LLM model, the sorted results are sent to the browser asynchronously and the results page is updated with the best experts, and explanations for the selections. 
+
+```javascript
+ $.ajax({
+      type: "POST",
+      url: "/query",
+      data: JSON.stringify(server_data),
+      contentType: "application/json",
+      dataType: 'json',
+      success: function(result) {
+      document.body.style.backgroundImage = "none"; 
+      $('#loader').hide(); 
+      expertCards.innerHTML = getCardHTML(result);
+      }
+    });
+```
 
 ![Screenshot of home page](./img/results.png)
 
-With the current version, the 4-paragraph summaries are available by clicking an expert's name, but they are not highlighted for areas that explain a candate's selection. 
 
-![Screenshot of home page](./img/expertise_basis.png)
 
