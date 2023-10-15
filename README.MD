@@ -1,6 +1,6 @@
 ## Expertise Locator Framework - "Philosophers" PoC 
 
-This repo is for testing document and expertise locator concepts and LLM API's in a custom web app environment. The goal is not to build actual production code, but to still test different architectures, workflows and API's in a more realistict setting than simple notebooks.  
+This repo is meant for testing new document and expertise locator concepts in a web app environment. The goal is not to build actual production code, but to still test different patterns, models and API's in a more realistict setup than notebooks.  
 
 
 ## RAG - based locator
