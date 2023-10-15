@@ -69,7 +69,14 @@ After the top-N experts are processed by the second phase LLM model, the sorted 
     });
 ```
 
+The top-N candidates, generator model's ranking explanations and confidence rating (stars) are shown in the search results. 
+
 ![Screenshot of home page](./img/results.png)
 
+## Future plans (Fall 2023)
+* Better generalization and code separation.
+* Automated model eval workflow, cloud deployment.
+* Fine-tuning based retrieval, comparison of model performances.
+* Better retrieval quality and explanation metrics for the end user. 
 
 
