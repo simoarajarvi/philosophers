@@ -19,7 +19,7 @@ The experts selected as the top-N candidates by a vector distance metric (e.g. c
 Concluding the procedure, the third phase focuses on result presentation. The LLM outputs the most relevant experts based on the evaluation, supplemented with brief explanations that decode the rationale behind each score. To add a layer of interpretability, the system dispenses metrics related to retrieval confidence. This metric offers a quantitative measure of the confidence level associated with each recommendation. 
 
 
-### Screen captures
+#### App init and cache setup
 The PoC is hosted as a web app, only a development server implementation - **Not to be used in production** - is provided in this repo. At server startup, a directory with expertise documents is scanned and compared against cached embeddings. If updates are found, the embedding model is called to process the updated documents and cache them. 
 
 ```python
@@ -37,11 +37,21 @@ At the landing page, the user will enter a question (or a describe the topic(s) 
 
 ![Screenshot of home page](./img/question.png)
 
-Whe the user submits a question, the question text is first processed the embedding model and then compared against the cached document embeddings representing the available experts. In the toy-example, each philosopher was given a 4 paragraph summary of their achievements and areas of exploration. After the top-N experts are processed by the second phase LLM model, the sorted results are sent to the browser asynchronously and the results page is updated with the best experts, and explanations for the selections. 
+#### Expertise retrieval
+Whe the user submits a question, the question text is first processed the embedding model and then compared against the cached document embeddings representing the available experts. 
+
+```python
+def find_best_experts(qa_embedding,exp_embeddings,distance_metric="cosine"):
+    distances = distances_from_embeddings(qa_embedding, exp_embeddings, distance_metric)
+    indices_of_nearest_neighbors = indices_of_nearest_neighbors_from_distances(distances)
+    return indices_of_nearest_neighbors,distances
+```
+
+In the toy-example, each philosopher was given a 4 paragraph summary of their achievements and areas of exploration. After the top-N experts are processed by the second phase LLM model, the sorted results are sent to the browser asynchronously and the results page is updated with the best experts, and explanations for the selections. 
 
 ![Screenshot of home page](./img/results.png)
 
-With the current version, the expertise documents are not highlighted for areas that support a candate's selection. Since the results are produced at a semantic level, this is not a trivial task, but it would be very helpful feature for an end user and implementation is under research.   
+With the current version, the expertise documents are available by clicking an expert's name, but they are not yet highlighted for areas that support a candate's selection. 
 
 ![Screenshot of home page](./img/expertise_basis.png)
 
