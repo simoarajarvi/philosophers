@@ -12,16 +12,27 @@ One of the primary advantages of this dual-phase approach is its scalability. By
 
 ### Example implementation 
 
-In the "Philosophers" toy example, the procedure starts with the preprocessing of documents detailing the knowledge and background of experts, in this case 25 classic philosophers. During this phase, each document is transformed using an embedding model (text-embedding-ada-002) to produce vector representations. (These embeddings serve as a distilled version of the philosophers' expertise, enabling efficient comparison and retrieval based on semantic similarity.)
+In the "Philosophers" toy example, the procedure starts with the preprocessing of documents detailing the knowledge and background of experts, in this case 25 classic philosophers. During this phase, each document is transformed using an embedding model (OpenAI text-embedding-ada-002) to produce vector representations. (These embeddings serve as a distilled version of the philosophers' expertise, enabling efficient comparison and retrieval based on semantic similarity.)
 
-The experts selected as the top-N candidates by a vector distance metric (e.g. cosine) are then introduced to a Large Language Model (LLM) API, such as gpt-4. At this juncture, various parameters like tone, temperature, and prompt are configured according to user-defined settings. This step facilitates a more granular evaluation of the candidate documents by the LLM, factoring in the user preferenes and requirements of specific use cases. 
+The experts selected as the top-N candidates by a vector distance metric (e.g. cosine) are then introduced to a Large Language Model (LLM) API, such as OpenAI gpt-4. At this juncture, various parameters like tone, temperature, and prompt are configured according to user-defined settings. This step facilitates a more granular evaluation of the candidate documents by the LLM, factoring in the user preferenes and requirements of specific use cases. 
 
 Concluding the procedure, the third phase focuses on result presentation. The LLM outputs the most relevant experts based on the evaluation, supplemented with brief explanations that decode the rationale behind each score. To add a layer of interpretability, the system dispenses metrics related to retrieval confidence. This metric offers a quantitative measure of the confidence level associated with each recommendation. 
 
 
+### Screen captures
+The PoC is hosted as a web app, only a developmen server implementation - **Not to be used in production** - is provided in this repo. At server startup, a directory with expertise documents is scanned and compared against cached embeddings. If updates are found, the embedding model is called to process the updated documents and cache them. At the landing page, the user will enter a question (or a describe the topic(s) where help is needed). In the toy-example, a user is looking for a classic philosopher to help with 6th grade math:
 
+![Screenshot of home page](./img/question.png)
+
+Whe the user submits a question, the question text is first processed the embedding model and then compared against the cached document embeddings representing the available experts. In the toy-example, each philosopher was given a 4 paragraph summary of their achievements and areas of exploration. After the top-N experts are processed by the second phase LLM model, the sorted results are sent to the browser asynchronously and the results page is updated with the best experts, and explanations for the selections. 
 
 ![Screenshot of home page](./img/results.png)
+
+With the current version, there is no 
+
+![Screenshot of home page](./img/retrieval.png)
+
+
 
 ### Landing page
 
