@@ -150,11 +150,10 @@ def generate(experts:List,distance_scores:List ,query:str,mdl:str,temp:float) ->
         messages = messages)
     
     
-    pers_map = read_persons_to_map('/Users/simoarajarvi/projects/CM/Philosophers/Summaries/')
     resp_list = eval(completion['choices'][0]['message']['content'].replace('\n',''))
     lst_resps = []
     for i,resp in enumerate(resp_list):
-        summary = pers_map[resp[1]].description 
+        summary = dct_person[resp[1]].description 
         lst_resps.append([resp[1].lower().replace(' ','_')+'.png',resp[1],resp[2],summary,distance_scores[i]])
     
     return lst_resps
