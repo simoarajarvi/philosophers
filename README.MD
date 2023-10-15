@@ -52,7 +52,7 @@ In the toy-example, each philosopher was given a 4 paragraph summary of their ac
 
 ![Screenshot of home page](./img/results.png)
 
-With the current version, the expertise documents are available by clicking an expert's name, but they are not yet highlighted for areas that support a candate's selection. 
+With the current version, the 4-paragraph summaries are available by clicking an expert's name, but they are not highlighted for areas that explain a candate's selection. 
 
 ![Screenshot of home page](./img/expertise_basis.png)
 
