@@ -75,7 +75,7 @@ The top-N candidates, generator model's ranking explanations and confidence rati
 
 ![Screenshot of home page](./img/results.png)
 
-## Future plans (Fall 2023)
+## Roadmap / requests (Fall 2023)
 * Better generalization and code separation.
 * Automated model eval workflow, cloud deployment.
 * Fine-tuning based retrieval, comparison of model performances.
